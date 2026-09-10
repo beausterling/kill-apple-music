@@ -1,3 +1,6 @@
 .DS_Store
 NoMoreMusic
 *.o
+
+# Local Netlify folder
+.netlify

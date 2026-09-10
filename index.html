@@ -14,13 +14,13 @@
     <meta property="og:title" content="Kill Apple Music — Stop Apple Music from Opening on Mac">
     <meta property="og:description" content="Free Mac utility that permanently prevents Apple Music from opening. Event-driven, zero CPU.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://beausterling.github.io/kill-apple-music">
-    <meta property="og:image" content="https://beausterling.github.io/kill-apple-music/og-image.png">
+    <meta property="og:url" content="https://killapplemusic.com">
+    <meta property="og:image" content="https://killapplemusic.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kill Apple Music — Stop Apple Music from Opening on Mac">
     <meta name="twitter:description" content="Permanently stop Apple Music from auto-launching. Free, open source, zero CPU.">
-    <meta name="twitter:image" content="https://beausterling.github.io/kill-apple-music/og-image.png">
-    <link rel="canonical" href="https://beausterling.github.io/kill-apple-music">
+    <meta name="twitter:image" content="https://killapplemusic.com/og-image.png">
+    <link rel="canonical" href="https://killapplemusic.com">
 
     <!-- Schema: SoftwareApplication -->
     <script type="application/ld+json">
@@ -131,6 +131,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -310,7 +311,33 @@
         /* Install command */
         .hero-install {
             margin-top: 2rem;
-            animation: fade-up 0.7s ease-out 1.4s both;
+            animation: fade-up 0.7s ease-out 1.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .hero-buttons .cta {
+            flex-shrink: 0;
+        }
+
+        .cta-bmc {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+
+        .cta-bmc:hover {
+            background: transparent;
+            border-color: #ffdd00;
+            color: #ffdd00;
+            box-shadow: 0 0 30px rgba(255, 221, 0, 0.15), 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         .install-label {
@@ -332,7 +359,7 @@
             padding: 0.8rem 1.25rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            max-width: 100%;
+            max-width: calc(100vw - 3rem);
             overflow-x: auto;
             white-space: nowrap;
         }
@@ -450,8 +477,9 @@
 
         .step {
             display: flex;
-            gap: 1.15rem;
+            gap: 1rem;
             align-items: flex-start;
+            min-width: 0;
         }
 
         .step-num {
@@ -460,8 +488,12 @@
             font-size: 2.5rem;
             color: var(--blood);
             line-height: 1;
-            min-width: 32px;
+            width: 28px;
             text-shadow: 0 0 20px rgba(204, 0, 0, 0.2);
+        }
+
+        .step-text {
+            min-width: 0;
         }
 
         .step-text h3 {
@@ -477,6 +509,8 @@
             color: var(--text-dim);
             margin-bottom: 0;
             line-height: 1.6;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         /* ═══════════════════════════════════════
@@ -487,6 +521,15 @@
             border-collapse: collapse;
             margin: 2rem 0;
             font-size: 0.88rem;
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .compare-table thead,
+        .compare-table tbody,
+        .compare-table tr {
+            display: revert;
         }
 
         .compare-table th,
@@ -494,6 +537,7 @@
             padding: 0.8rem 0.9rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
+            white-space: nowrap;
         }
 
         .compare-table th {
@@ -520,6 +564,7 @@
         }
 
         .faq-item:first-child { border-top: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: none; }
 
         .faq-q {
             font-family: 'Manrope', sans-serif;
@@ -551,7 +596,7 @@
            ═══════════════════════════════════════ */
         .final-cta {
             text-align: center;
-            padding: 4rem 1.5rem 3rem;
+            padding: 4rem 1.5rem 0;
             max-width: 640px;
             margin: 0 auto;
             position: relative;
@@ -571,7 +616,7 @@
            ═══════════════════════════════════════ */
         footer {
             text-align: center;
-            padding: 2rem 1.5rem 3rem;
+            padding: 3rem 1.5rem 3rem;
             position: relative;
             z-index: 1;
         }
@@ -592,6 +637,35 @@
             font-size: 0.75rem;
             color: var(--text-dim);
             font-style: italic;
+        }
+
+        .bmc-inline {
+            display: inline;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .bmc-inline:hover {
+            color: #ffdd00;
+            border-color: #ffdd00;
+        }
+
+        /* Signature */
+        .signature {
+            margin-top: 1rem;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.72rem;
+        }
+
+        .signature a {
+            color: var(--toxic);
+            text-decoration: none;
+        }
+
+        .signature a:hover {
+            text-decoration: underline;
         }
 
         /* ═══════════════════════════════════════
@@ -615,6 +689,153 @@
             .hero-image {
                 width: 340px;
                 height: 340px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            html { font-size: 18px; }
+
+            .hero-inner {
+                max-width: 900px;
+            }
+
+            .hero-image {
+                width: 380px;
+                height: 380px;
+            }
+
+            h1 .h1-kill {
+                font-size: 10rem;
+            }
+
+            h1 .h1-target {
+                font-size: 6rem;
+            }
+
+            .hero-subtitle {
+                max-width: 660px;
+            }
+
+            section {
+                max-width: 1060px;
+                padding: 6rem 2rem;
+            }
+
+            .triggers {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+            }
+
+            .trigger-card {
+                padding: 1.5rem 1.6rem;
+            }
+
+            .steps {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .compare-table th,
+            .compare-table td {
+                padding: 1.1rem 1.5rem;
+            }
+
+            .faq-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0 3rem;
+            }
+
+            .faq-item {
+                border-top: 1px solid var(--border);
+                padding: 1.5rem 0;
+            }
+
+            .final-cta {
+                max-width: 900px;
+            }
+
+            .footer-tags {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            html { font-size: 20px; }
+
+            .hero-inner {
+                max-width: 1060px;
+            }
+
+            .hero-image {
+                width: 420px;
+                height: 420px;
+            }
+
+            h1 .h1-kill {
+                font-size: 12rem;
+            }
+
+            h1 .h1-target {
+                font-size: 7rem;
+            }
+
+            .hero-subtitle {
+                max-width: 740px;
+            }
+
+            section {
+                max-width: 1280px;
+            }
+
+            .triggers {
+                gap: 1.5rem;
+            }
+
+            .trigger-card {
+                padding: 1.75rem 1.8rem;
+            }
+
+            .steps {
+                gap: 3rem;
+            }
+
+            .faq-item {
+                padding: 1.75rem 0;
+            }
+
+            .final-cta {
+                max-width: 1060px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            html { font-size: 22px; }
+
+            .hero-inner {
+                max-width: 1200px;
+            }
+
+            .hero-image {
+                width: 460px;
+                height: 460px;
+            }
+
+            h1 .h1-kill {
+                font-size: 14rem;
+            }
+
+            h1 .h1-target {
+                font-size: 8rem;
+            }
+
+            section {
+                max-width: 1400px;
+            }
+
+            .final-cta {
+                max-width: 1200px;
             }
         }
 
@@ -647,12 +868,8 @@
                 Apple Music keeps opening automatically on your Mac. When you connect AirPods. When you press play. When you <strong>breathe near your Mac</strong>. Stop it permanently with one command. Zero CPU. Works every time.
             </p>
 
-            <a href="https://github.com/beausterling/kill-apple-music" class="cta" target="_blank" rel="noopener">
-                Install Free from GitHub &rarr;
-            </a>
-
             <div class="hero-install">
-                <p class="install-label">or run one command</p>
+                <p class="install-label">run one command</p>
                 <div class="install-cmd" onclick="copyCmd(this)" title="Click to copy">
                     <span class="prompt">$</span>
                     <code>git clone https://github.com/beausterling/kill-apple-music.git && cd kill-apple-music && bash install.sh</code>
@@ -661,6 +878,15 @@
                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                     </svg>
                 </div>
+            </div>
+
+            <div class="hero-buttons" style="animation: fade-up 0.7s ease-out 1.4s both;">
+                <a href="https://github.com/beausterling/kill-apple-music" class="cta" target="_blank" rel="noopener">
+                    Install Free from GitHub &rarr;
+                </a>
+                <a href="https://buymeacoffee.com/beausterling" class="cta cta-bmc" target="_blank" rel="noopener noreferrer">
+                    ☕️ Buy Me a Coffee
+                </a>
             </div>
         </div>
     </header>
@@ -695,6 +921,9 @@
 
         <p>
             Apple considers this intentional behavior, not a bug. No checkbox in System Settings will disable it. That's why Kill Apple Music exists.
+        </p>
+        <p>
+            Kill Apple Music is free and open source. If it saved you from going insane, consider <a href="https://buymeacoffee.com/beausterling" class="bmc-inline" target="_blank" rel="noopener noreferrer">buying me a coffee ☕️</a>.
         </p>
     </section>
 
@@ -854,9 +1083,14 @@
     <div class="final-cta">
         <h2>READY TO <span class="red">KILL IT</span>?</h2>
         <p>Free. Open source. Takes 30 seconds.</p>
-        <a href="https://github.com/beausterling/kill-apple-music" class="cta" target="_blank" rel="noopener">
-            Get Kill Apple Music &rarr;
-        </a>
+        <div class="hero-buttons">
+            <a href="https://github.com/beausterling/kill-apple-music" class="cta" target="_blank" rel="noopener">
+                Get Kill Apple Music &rarr;
+            </a>
+            <a href="https://buymeacoffee.com/beausterling" class="cta cta-bmc" target="_blank" rel="noopener noreferrer">
+                ☕️ Buy Me a Coffee
+            </a>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -869,6 +1103,9 @@
             <span>MIT License</span>
         </div>
         <p class="tagline">Made with justified rage.</p>
+        <p class="signature">
+            <span style="color: #ddd8d0;">Created by </span><a href="https://beausterling.xyz/" target="_blank" rel="noopener noreferrer">beausterling.xyz</a>
+        </p>
     </footer>
 
     <script>
