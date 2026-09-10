@@ -64,6 +64,10 @@ Apple Music will work normally again immediately.
 
 Both are great tools. Kill Apple Music just takes a different, more efficient approach.
 
+## Support
+
+Free and open source. If it saved your sanity, you can tip via [Buy Me a Coffee](https://buymeacoffee.com/beausterling) or grab it on [Gumroad](https://beausterling.gumroad.com/l/killapplemusic) (pay what you want).
+
 ## License
 
 MIT
